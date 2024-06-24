@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-
 export default function HowToPlay(props) {
+   
 
-    useEffect(() => {
+    /*useEffect(() => {
+
         const changeUrl = () => {
             window.history.pushState({}, "", "/tutorial");
         };
@@ -18,7 +18,8 @@ export default function HowToPlay(props) {
             // Revertir el cambio en el historial del navegador
             window.history.back();
         };
-    }, []);
+    }, []);*/
+
 
 
     return (<>

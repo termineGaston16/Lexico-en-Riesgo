@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { CategoriesContext } from "../../context/categories"
 import { Link } from "react-router-dom"
 
@@ -6,6 +6,11 @@ import { Link } from "react-router-dom"
 export default function ChooseToCategory() {
 
     const { generateCategories } = useContext(CategoriesContext)
+    
+    useEffect(() => { 
+        localStorage.clear();
+        localStorage.setItem("lifePlayer", JSON.stringify(100))
+    }, [])
 
     return (<>
         <section>
