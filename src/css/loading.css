@@ -1,0 +1,31 @@
+.main-Loading{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.main-aside-Loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.spinner-grow{
+    color: white;
+    box-shadow: 0px 0px 0.5rem white;
+}
+
+.main-span-Loading{
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    text-shadow: 0px 0px 0.5rem white;
+    color: white;
+}

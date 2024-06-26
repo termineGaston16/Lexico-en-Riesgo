@@ -7,6 +7,7 @@ export function CategoriesProvider({ children }) {
     const [categories, setCategories] = useState(null);
     const [wordRandom, setWordRandom] = useState(null);
     const [hiddenWord, setHiddenWord] = useState(null);
+    const [keysDown, setKeysDown] = useState([])
     const [lifePlayer, setLifePlayer] = useState(100);
 
     useEffect(() => {
@@ -70,6 +71,16 @@ export function CategoriesProvider({ children }) {
 
     /* Adivinar palabra según letra ingresada */
     const checkKey = (key) => {
+
+        
+        if(keysDown.some(keyDown => keyDown === key)){
+            alert("letra ya pulsada")
+            return;
+        }else{
+            setKeysDown(prevArray => ([...prevArray, key]))
+        }
+
+
         let palabraAAdivinar = localStorage.getItem("palabraAAdivinar");
         let palabraEnigma = localStorage.getItem("palabraEnigma");
 

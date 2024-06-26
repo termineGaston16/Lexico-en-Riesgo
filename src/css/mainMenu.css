@@ -1,0 +1,105 @@
+.main-MainMenu {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.main-link-MainMenu {
+    width: 100%;
+    max-width: 400px;
+    transition: .3s;
+}
+
+.main-link-MainMenu:hover {
+    transform: scale(1.1);
+}
+
+.main-link-img-MainMenu {
+    width: 100%;
+}
+
+.main-h6-MainMenu {
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
+.main-h6-span-MainMenu {
+    color: aqua;
+    text-shadow: 0px 0px 1rem aqua;
+}
+
+.main-section-MainMenu {
+    background-color: rgba(40, 40, 40, 0.726);
+    border-radius: 0.6rem;
+
+    width: 95%;
+    max-width: 400px;
+    max-height: 400px;
+
+    padding: 1%;
+    margin-top: 2%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.main-section-link-MainMenu {
+    transition: .3s;
+}
+
+.main-section-link-button-MainMenu,
+.main-section-button-MainMenu {
+    background: radial-gradient(circle at left top, rgb(81, 81, 81), rgb(42, 42, 42));
+    border: none;
+    font-size: 1.1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 300;
+
+    width: 7rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+
+    transition: .3s;
+    cursor: pointer;
+}
+
+.main-section-link-MainMenu:hover .main-section-link-button-MainMenu {
+    transform: scale(1.1);
+    background: radial-gradient(circle at left top, aqua, rgb(24, 137, 236));
+    color: rgb(42, 42, 42);
+}
+
+.main-section-button-MainMenu:hover {
+    transform: scale(1.1);
+    background: radial-gradient(circle at left top, aqua, rgb(24, 137, 236));
+    color: rgb(42, 42, 42);
+}
+
+@keyframes open {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.div-container-open {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    animation: open 0.2s;
+
+    background-color: rgba(0, 0, 0, 0.578);
+    display: grid;
+    place-content: center;
+}

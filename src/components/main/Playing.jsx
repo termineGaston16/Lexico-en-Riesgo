@@ -3,33 +3,39 @@ import { Link, useParams } from "react-router-dom";
 
 import { CategoriesContext } from "../../context/categories"
 const TecladoVisual = lazy(() => import("./TecladoVisual"))
-const Win = lazy(() => import("./Win"))
+const WinOrLose = lazy(() => import("./WinOrLose"))
+const OpenMenu = lazy(()=> import("./OpenMenu"))
 
 
 export default function Playing() {
     const { chooseCategory } = useParams();
     const { getRandomWord, hiddenWord, wordRandom, lifePlayer } = useContext(CategoriesContext)
     const [winContent, setWinContent] = useState(false)
-    const {idLife} = useId();
+    const [menuOpen, setMenuOpen] = useState(false)
+    const { idLife } = useId();
 
     useEffect(() => {
-        getRandomWord(chooseCategory);  
-        
+        getRandomWord(chooseCategory);
+
     }, [])
 
     useEffect(() => {
         if (!hiddenWord) return;
-        if (hiddenWord.split("").every(letra => letra !== "-")){
+        if (hiddenWord.split("").every(letra => letra !== "-")) {
             setWinContent(true)
         }
 
     }, [hiddenWord])
 
+    const openMenu = () => {
+        setMenuOpen(prevState => !prevState)
+    }
+
     return (<>
         <header>
-            <Link to={"/"}><button>Menu</button></Link>
+            <button onClick={openMenu}>Menu</button>
             <h2>{chooseCategory}</h2>
-            <input type="range" min="0" max="100" value={lifePlayer} name="" id={idLife} readOnly/>
+            <input type="range" min="0" max="100" value={lifePlayer} name="" id={idLife} readOnly />
             <label htmlFor={idLife}>{lifePlayer}% - Vida</label>
         </header>
 
@@ -41,7 +47,9 @@ export default function Playing() {
             </Suspense>
 
             <Suspense fallback={"Loading..."}>
-                {winContent && <Win palabraDescubierta={wordRandom} />}
+                {winContent && <WinOrLose title={"Has Ganado"} palabraDescubierta={wordRandom} />}
+                {lifePlayer <= 0 && <WinOrLose title={"Has Perdido"} palabraDescubierta={wordRandom} />}
+                {menuOpen && <OpenMenu function={openMenu}/>}
             </Suspense>
 
         </main>

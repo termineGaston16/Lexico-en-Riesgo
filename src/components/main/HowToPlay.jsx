@@ -1,5 +1,6 @@
+import "../../css/howToPlay.css"
+
 export default function HowToPlay(props) {
-   
 
     /*useEffect(() => {
 
@@ -23,28 +24,28 @@ export default function HowToPlay(props) {
 
 
     return (<>
-        <aside>
-            <header>
-                <h5>¿Cómo jugar al juego de ahorcados?</h5>
-                <button onClick={props.handleClick}>Volver</button>
+        <aside className="aside-HowToPlay">
+            <header className="aside-header-HowToPlay">
+                <h5 className="aside-header-text-HowToPlay">¿Cómo jugar al juego de ahorcados?</h5>
+                <button onClick={props.handleClick} className="aside-header-button-HowToPlay">Volver</button>
             </header>
 
-            <span>
+            <span className="aside-header-text-HowToPlay">
                 El juego de ahorcados es un divertido desafío de palabras donde tu objetivo es adivinar la palabra oculta
                 antes de que se complete el dibujo del ahorcado. Sigue estos pasos para jugar:
             </span>
-            <ol>
-                <li><span>Inicio del Juego:</span> Para comenzar el juego deberá darle al botón Play en el menú principal y allí
+            <ol className="aside-header-ol-HowToPlay">
+                <li className="aside-header-text-HowToPlay"><span className="aside-header-span-HowToPlay">Inicio del Juego:</span> Para comenzar el juego deberá darle al botón Play en el menú principal y allí
                     elegir una categoría o sección específica. Dependiendo de la sección elegida, se generará la palabra a adivinar.
                 </li>
 
-                <li><span>Objetivo del Juego:</span> Tendrás <span>8 intentos</span> por cada palabra para poder
+                <li className="aside-header-text-HowToPlay"><span className="aside-header-span-HowToPlay">Objetivo del Juego:</span> Tendrás <span>8 intentos</span> por cada palabra para poder
                     adivinar las letras perteneciente a la palabra elegida y según aciertes o no se te irá descontando las vidas.</li>
 
-                <li><span>Victoria:</span> Si adivinas la palabra completa antes de perder los 8 intentos, ganarás automaticamente
+                <li className="aside-header-text-HowToPlay"><span className="aside-header-span-HowToPlay">Victoria:</span> Si adivinas la palabra completa antes de perder los 8 intentos, ganarás automaticamente
                     la partida.</li>
 
-                <li><span>Derrota:</span> Si gastas tus 8 intentos, date por muerto/a y acepta tu cruel destino.</li>
+                <li className="aside-header-text-HowToPlay"><span className="aside-header-span-HowToPlay">Derrota:</span> Si gastas tus 8 intentos, date por muerto/a y acepta tu cruel destino.</li>
             </ol>
         </aside>
     </>)

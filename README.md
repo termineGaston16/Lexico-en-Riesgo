@@ -12,9 +12,8 @@ Sus usuarios deberían poder:
 [✔] Juega al Ahorcado con una palabra aleatoria seleccionada de esa categoría.
 [✔] Vea cómo disminuye su salud actual debido a adivinanzas de letras incorrectas.
 [✔] Gana el juego si completan la palabra completa.
-[] Pierde el juego si acierta ocho veces.
-[] Descartar letra, ya sea si acertó o erró.
-[] Pausa el juego y elige continuar, elige una nueva categoría o sal.
+[✔] Pierde el juego si acierta ocho veces.
+[✔] Descartar letra, ya sea si acertó o erró.
+[✔] Pausa el juego y elige continuar, elige una nueva categoría o sal.
 [] Vea el diseño óptimo para la interfaz según el tamaño de pantalla de su dispositivo.
-[] Vea los estados de desplazamiento y enfoque de todos los elementos interactivos de la página.
 

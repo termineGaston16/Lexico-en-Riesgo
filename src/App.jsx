@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import Loading from "./components/main/Loading";
 
 // Importa los componentes con lazy
 const MainMenu = lazy(() => import("./components/main/MainMenu"));
@@ -12,7 +13,7 @@ const CategoriesProvider = lazy(() => import("./context/categories").then(module
 export default function App() {
     return (
         <BrowserRouter>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading mensaje={"Cargando tutorial..."}/>}>
                 <Routes>
                     <Route exact path={"/"} element={<MainMenu />} />
                     <Route exact path={"/elegir-categoria"} element={<CategoriesProvider><ChooseToCategory /></CategoriesProvider>} />
