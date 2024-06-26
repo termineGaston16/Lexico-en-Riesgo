@@ -1,0 +1,102 @@
+@keyframes open {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.section-ChooseToCategory {
+    background-color: rgba(0, 0, 0, 0.76);
+    border: 5px solid white;
+    width: 90vw;
+    max-width: 1000px;
+
+    padding: 5%;
+    border-radius: 1rem;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.7rem;
+    animation: open 0.2s;
+}
+
+.section-header-ChooseToCategory {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+}
+
+.section-header-link-ChooseToCategory {
+    position: relative;
+    right: 5%;
+}
+
+.section-header-link-button-ChooseToCategory {
+    background: none;
+    border: none;
+    transition: .2s;
+}
+
+.section-header-link-ChooseToCategory:hover .section-header-link-button-ChooseToCategory {
+    transform: scale(1.2);
+    filter: drop-shadow(0px 0px 0.2rem white);
+}
+
+.section-header-h4-ChooseToCategory {
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.section-main-ChooseToCategory {
+    width: 100%;
+
+}
+
+.section-main-ul-ChooseToCategory {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin: 0px;
+    padding: 0px;
+    gap: 1rem;
+}
+
+.section-main-ul-link-li-ChooseToCategory {
+    width: 7rem;
+    height: 3rem;
+}
+
+.section-main-ul-link-li-button-ChooseToCategory {
+    background: radial-gradient(circle at left top, rgb(81, 81, 81), rgb(42, 42, 42));
+    border: none;
+    font-size: 1.1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 300;
+
+    width: 7rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+
+    transition: .3s;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.section-main-ul-link-ChooseToCategory:hover .section-main-ul-link-li-button-ChooseToCategory {
+    transform: scale(1.1);
+    background: radial-gradient(circle at left top, aqua, rgb(24, 137, 236));
+    color: rgb(42, 42, 42);
+}

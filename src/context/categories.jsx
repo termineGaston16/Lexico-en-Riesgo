@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { getCategories } from "../firebase/firebase";
+import Loading from "../components/main/Loading"
 
 export const CategoriesContext = createContext();
 
@@ -7,8 +8,10 @@ export function CategoriesProvider({ children }) {
     const [categories, setCategories] = useState(null);
     const [wordRandom, setWordRandom] = useState(null);
     const [hiddenWord, setHiddenWord] = useState(null);
+    const [fail, setFail] = useState(false);
     const [keysDown, setKeysDown] = useState([])
     const [lifePlayer, setLifePlayer] = useState(100);
+    const [teclado, setTeclado] = useState(Array.from({ length: 26 }, (_, i) => String.fromCharCode(97 + i)))
 
     useEffect(() => {
         getCategories()
@@ -71,15 +74,14 @@ export function CategoriesProvider({ children }) {
 
     /* Adivinar palabra según letra ingresada */
     const checkKey = (key) => {
+        const tecladoBase = teclado;
+        const newKeyboard = tecladoBase.filter(letra => letra.toLowerCase() !== key.toLowerCase())
+        setTeclado(newKeyboard)
 
-        
-        if(keysDown.some(keyDown => keyDown === key)){
-            alert("letra ya pulsada")
-            return;
-        }else{
-            setKeysDown(prevArray => ([...prevArray, key]))
-        }
+        const isFail = fail;
+        if (isFail) setFail(false);
 
+        setKeysDown(prevArray => ([...prevArray, key]))
 
         let palabraAAdivinar = localStorage.getItem("palabraAAdivinar");
         let palabraEnigma = localStorage.getItem("palabraEnigma");
@@ -97,7 +99,8 @@ export function CategoriesProvider({ children }) {
             localStorage.setItem("palabraEnigma", nuevaPalabraEnigma);
             setHiddenWord(nuevaPalabraEnigma);
         } else {
-            alert("letra incorrecta")
+            alert("Letra Incorrecta")
+            setFail(true)
 
             const life = lifePlayer;
             const newLife = (life - 12.5)
@@ -108,10 +111,10 @@ export function CategoriesProvider({ children }) {
     };
 
 
-    if (!categories) return (<p>Obteniendo datos...</p>)
+    if (!categories) return (<Loading mensaje={"Obteniendo datos..."} />)
 
     return (
-        <CategoriesContext.Provider value={{ categories, wordRandom, hiddenWord, lifePlayer, setCategories, generateCategories, getRandomWord, checkKey }}>
+        <CategoriesContext.Provider value={{ teclado, categories, wordRandom, hiddenWord, lifePlayer, fail, setFail, setCategories, generateCategories, getRandomWord, checkKey, setTeclado }}>
             {children}
         </CategoriesContext.Provider>
     );

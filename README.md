@@ -15,5 +15,5 @@ Sus usuarios deberían poder:
 [✔] Pierde el juego si acierta ocho veces.
 [✔] Descartar letra, ya sea si acertó o erró.
 [✔] Pausa el juego y elige continuar, elige una nueva categoría o sal.
-[] Vea el diseño óptimo para la interfaz según el tamaño de pantalla de su dispositivo.
+[✔] Vea el diseño óptimo para la interfaz según el tamaño de pantalla de su dispositivo.
 

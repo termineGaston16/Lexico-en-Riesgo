@@ -13,7 +13,7 @@ const CategoriesProvider = lazy(() => import("./context/categories").then(module
 export default function App() {
     return (
         <BrowserRouter>
-            <Suspense fallback={<Loading mensaje={"Cargando tutorial..."}/>}>
+            <Suspense fallback={<Loading mensaje={"Cargando..."}/>}>
                 <Routes>
                     <Route exact path={"/"} element={<MainMenu />} />
                     <Route exact path={"/elegir-categoria"} element={<CategoriesProvider><ChooseToCategory /></CategoriesProvider>} />

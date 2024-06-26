@@ -1,16 +1,16 @@
 import { useContext, useState } from "react"
 import { CategoriesContext } from "../../context/categories";
+import "../../css/tecladoVisual.css"
 
 export default function TecladoVisual() {
 
-    const { checkKey } = useContext(CategoriesContext)
-    const [teclado, setTeclado] = useState(Array.from({ length: 26 }, (_, i) => String.fromCharCode(97 + i)))
-
+    const { checkKey, teclado } = useContext(CategoriesContext)
+   
     return (
         <>
-            <div>
+            <div className="div-TecladoVisual">
                 {teclado.map((tecla, index) => (
-                    <button onClick={()=>{checkKey(tecla.toUpperCase())}} key={index}>{tecla}</button>
+                    <button className="div-button-TecladoVisual" onClick={()=>{checkKey(tecla.toUpperCase())}} key={index}>{tecla}</button>
                 ))}
             </div>
         </>

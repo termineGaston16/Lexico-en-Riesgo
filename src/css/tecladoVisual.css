@@ -1,0 +1,31 @@
+.div-TecladoVisual{
+    width: 90%; 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.div-button-TecladoVisual{
+    width: 4rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+
+    background-color: rgb(40, 40, 40);
+    border-radius: 0.5rem;
+    border: none;
+    text-transform: uppercase;
+
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: .3s;
+}
+
+.div-button-TecladoVisual:hover{
+    transform: scale(1.1);
+    background: radial-gradient(circle at left top, aqua, rgb(24, 137, 236));
+    color: rgb(42, 42, 42);
+}

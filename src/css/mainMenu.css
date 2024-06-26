@@ -99,7 +99,10 @@
     position: absolute;
     animation: open 0.2s;
 
+    padding-top: 5%;
+
     background-color: rgba(0, 0, 0, 0.578);
-    display: grid;
-    place-content: center;
+    display: flex;
+    align-items: start;
+    justify-content: center;
 }

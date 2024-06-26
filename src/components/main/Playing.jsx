@@ -1,18 +1,20 @@
 import { Suspense, lazy, useContext, useEffect, useId, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { CategoriesContext } from "../../context/categories"
+import Loading from "./Loading";
+import lifeJugador from "../main/imgs/lifeJugador.png"
 const TecladoVisual = lazy(() => import("./TecladoVisual"))
 const WinOrLose = lazy(() => import("./WinOrLose"))
-const OpenMenu = lazy(()=> import("./OpenMenu"))
+const OpenMenu = lazy(() => import("./OpenMenu"))
+import "../../css/playing.css"
 
 
 export default function Playing() {
     const { chooseCategory } = useParams();
-    const { getRandomWord, hiddenWord, wordRandom, lifePlayer } = useContext(CategoriesContext)
+    const { getRandomWord, hiddenWord, wordRandom, lifePlayer, fail, setFail } = useContext(CategoriesContext)
     const [winContent, setWinContent] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
-    const { idLife } = useId();
 
     useEffect(() => {
         getRandomWord(chooseCategory);
@@ -32,24 +34,32 @@ export default function Playing() {
     }
 
     return (<>
-        <header>
-            <button onClick={openMenu}>Menu</button>
-            <h2>{chooseCategory}</h2>
-            <input type="range" min="0" max="100" value={lifePlayer} name="" id={idLife} readOnly />
-            <label htmlFor={idLife}>{lifePlayer}% - Vida</label>
+        <header className="header-Playing">
+            <button onClick={openMenu} className="header-button-Playing">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+            </button>
+            <h2 className="header-h2-Playing">{chooseCategory}</h2>
+            <div className={`header-div-Playing ${fail ? 'fail-animation' : ''}`}>
+                <div className="header-div-backgroundLife-Playing">
+                    <div className="header-div-backgroundLife-life-Playing" style={{ width: lifePlayer + "%"}}></div>
+                </div>
+                <img className="header-div-img-Playing" src={lifeJugador} alt="life-jugador-img" />
+            </div>
         </header>
 
-        <main>
-            <span>Palabra a Adivinar: <br /> {hiddenWord} </span>
+        <main className="main-Playing">
+            <p className="main-p-Playing">Palabra a Adivinar: <br /> <span className="main-span-Playing">{hiddenWord}</span> </p>
 
-            <Suspense fallback={"cargando teclado..."}>
+            <Suspense fallback={<Loading mensaje={"Cargando teclado..."} />}>
                 <TecladoVisual />
             </Suspense>
 
-            <Suspense fallback={"Loading..."}>
-                {winContent && <WinOrLose title={"Has Ganado"} palabraDescubierta={wordRandom} />}
-                {lifePlayer <= 0 && <WinOrLose title={"Has Perdido"} palabraDescubierta={wordRandom} />}
-                {menuOpen && <OpenMenu function={openMenu}/>}
+            <Suspense fallback={<Loading mensaje={"Cargando..."} />}>
+                {winContent && <div className="div-container-open"><WinOrLose title={"Has Ganado"} palabraDescubierta={wordRandom} /></div>}
+                {lifePlayer <= 0 && <div className="div-container-open"><WinOrLose title={"Has Perdido"} palabraDescubierta={wordRandom} /></div>}
+                {menuOpen && <div className="div-container-open"><OpenMenu function={openMenu} /></div>}
             </Suspense>
 
         </main>

@@ -1,4 +1,4 @@
-*{
+* {
   padding: 0px;
   margin: 0px;
 }
@@ -18,15 +18,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  display: grid;
+  place-content: center;
   min-height: 100vh;
 
   background-image: url("/src//components/main/imgs/fondo-menu.jpg");
   background-position: center center;
   background-repeat: repeat;
-  background-size: cover;
+  background-size:cover;
 }
-

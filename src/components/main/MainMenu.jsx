@@ -17,7 +17,7 @@ export default function MainMenu() {
     return (
         <main className="main-MainMenu">
             <Link to={"/"} className="main-link-MainMenu"><img src={logoPrincipal} alt="logo principal de la página" className="main-link-img-MainMenu" /></Link>
-            <h6 className="main-h6-MainMenu">Juego by <span className="main-h6-span-MainMenu">Kda/Nova 2024</span></h6>
+            <h6 className="main-h6-MainMenu">Juego by <span className="main-h6-span-MainMenu">KDA/NOVA 2024</span></h6>
 
             <section className="main-section-MainMenu">
                 <Link to={"/elegir-categoria"} className="main-section-link-MainMenu">
